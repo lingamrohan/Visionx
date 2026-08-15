@@ -2,16 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "env": [
-    {
-      "key": "EMAIL_USER",
-      "description": "Gmail address for sending emails"
-    },
-    {
-      "key": "EMAIL_PASSWORD",
-      "description": "Gmail app password"
-    }
-  ],
   "functions": {
     "api/contact.js": {
       "memory": 1024,
