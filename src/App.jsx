@@ -57,13 +57,14 @@ function App() {
     } catch (error) {
       console.error('Error:', error)
       setStatus('error')
-      setMessage('❌ Something went wrong. Please try again.')
+      const errorDetail = error.response?.data?.error || error.response?.data?.message || error.message || 'Something went wrong. Please try again.'
+      setMessage(`❌ ${errorDetail}`)
       
-      // Clear error message after 5 seconds
+      // Clear error message after 8 seconds
       setTimeout(() => {
         setStatus('idle')
         setMessage('')
-      }, 5000)
+      }, 8000)
     }
   }
 

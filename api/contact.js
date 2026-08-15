@@ -24,13 +24,24 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: 'Missing required fields' })
   }
 
+  // Check environment variables
+  const emailUser = process.env.EMAIL_USER?.trim()
+  const emailPassword = process.env.EMAIL_PASSWORD?.replace(/\s+/g, '') // remove spaces from app password if present
+
+  if (!emailUser || !emailPassword) {
+    return res.status(500).json({
+      message: 'Server Configuration Error',
+      error: 'EMAIL_USER or EMAIL_PASSWORD is not configured in Vercel Environment Variables.'
+    })
+  }
+
   try {
     // Create transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD
+        user: emailUser,
+        pass: emailPassword
       }
     })
 
