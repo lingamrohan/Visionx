@@ -236,7 +236,7 @@ export default function App() {
             <>
               <div className="card-header">
                 <span className="badge">INSTITUTIONAL ENQUIRY</span>
-                <h1 className="form-title">Partner With VisionX</h1>
+                <h1 className="form-title">VisionX</h1>
                 <p className="form-subtitle">
                   Complete this brief form to discuss workshop dates, syllabus alignment, or on-campus demo sessions.
                 </p>
